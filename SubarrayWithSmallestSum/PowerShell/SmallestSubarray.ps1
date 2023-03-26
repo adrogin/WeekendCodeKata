@@ -36,8 +36,8 @@ function FindMinRange {
         [ArrayFrame]$currFrame
     )
 
-    if ($currFrame.Position -gt $range.Count - $currFrame.Length) {
-        return $minFrame
+    if ($currFrame.Position -eq $range.Count - $currFrame.Length) {
+        return (CompareFramesGetMin $minFrame $currFrame)
     }
 
     FindMinRange `
@@ -63,8 +63,8 @@ function CompareFramesGetMin() {
     return $frame2
 }
 
-$range = InitRandomArray 20 10
-$subsetLen = 4
+$range = InitRandomArray 10 10
+$subsetLen = 3
 
 $range
 
