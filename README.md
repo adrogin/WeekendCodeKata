@@ -1,0 +1,2 @@
+# WeekendCodeKata
+Code Kata exercises
