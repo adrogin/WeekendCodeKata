@@ -2,9 +2,9 @@ namespace MinSumSubarray
 {
     class ArrayFrame
     {
-        public int Position;
-        public int Sum;
-        public int Length;
+        public int Position { get; }
+        public int Sum { get; }
+        public int Length { get; }
 
         public ArrayFrame(int position, int sum, int length)
         {
@@ -49,7 +49,7 @@ namespace MinSumSubarray
                         new ArrayFrame(currFrame.Position + 1, currFrame.Sum - range[currFrame.Position] + range[currFrame.Position + currFrame.Length], currFrame.Length));
         }
 
-        public ArrayFrame FindMinRange(int[] array, int rangeLen)
+        public ArrayFrame FindMinRange(int rangeLen)
         {
             return FindMinRange(new ArrayFrame(-1, int.MaxValue, 0), new ArrayFrame(0, CalcArraySum(0, rangeLen - 1), rangeLen));
         }

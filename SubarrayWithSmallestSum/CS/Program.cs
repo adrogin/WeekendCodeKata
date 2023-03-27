@@ -25,7 +25,7 @@ namespace MinSumSubarray
             
             Array.ForEach(range, Console.WriteLine);
 
-            Console.Write(subarrayFinder.FindMinRange(range, 3).ToString());
+            Console.Write(subarrayFinder.FindMinRange(3).ToString());
         }
     }
 }
