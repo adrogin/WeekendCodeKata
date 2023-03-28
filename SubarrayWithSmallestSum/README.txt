@@ -12,3 +12,4 @@ Find the subset of 3 elements with smallest sum
 Solution: 2 5 2
 
 Additional requirement: solution must not contain mutable variables. No variable value can be changed after assignment.
+No other requirements for this exercise except immutability. If there are multiple subsets yielding the same sum, it doesn't matter which one is reterned.
