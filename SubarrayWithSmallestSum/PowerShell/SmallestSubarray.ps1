@@ -10,11 +10,20 @@ function InitRandomArray {
         [int]$maxValue
     )
 
-    $array = @()
-    for ($i = 0; $i -lt $length; $i++) {
-        $array += (Get-Random -Maximum $maxValue)
+    $array = [int[]]::new($length)
+
+    $AssignArrayElement = {
+        Param($array, [int]$elementNo)
+
+        $array[$elementNo] = (Get-Random -Maximum $maxValue)
+        if ($elementNo -eq $length - 1) {
+            return;
+        }
+
+        & $AssignArrayElement -array $array -elementNo ($elementNo + 1)
     }
 
+    & $AssignArrayElement -array $array -elementNo 0
     return $array
 }
 

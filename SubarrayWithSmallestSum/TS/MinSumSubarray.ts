@@ -47,13 +47,19 @@ class SubarrayFinder {
     }
 }
 
-function InitRandomArray(length: number, maxValue: number) {
-    const array = new Int32Array(length);
+const InitRandomArray = function (length: number, maxValue: number) {
+    let array = new Int32Array(length);
 
-    for (var i: number = 0; i < length; i++) {
-        array[i] = Math.round(Math.random() * maxValue);
+    function AssignArrayElement(elementNo: number) {
+        array[elementNo] = Math.random() * maxValue;
+
+        if (elementNo == array.length - 1)
+            return;
+
+        AssignArrayElement(elementNo + 1);
     }
 
+    AssignArrayElement(0);
     return array;
 }
 

@@ -9,12 +9,19 @@ namespace MinSumSubarray
         {
             int[] range = new int[length];
             Random rand = new Random();
+            Action<int> AssignArrayElement = null;
 
-            for (int i = 0; i < length; i++)
-            {
-                range[i] = rand.Next(maxValue);
-            }
+            AssignArrayElement = elementNo => {
+                range[elementNo] = rand.Next(maxValue);
 
+                if (elementNo == range.Length - 1) {
+                    return;
+                }
+
+                AssignArrayElement(elementNo + 1);
+            };
+
+            AssignArrayElement(0);
             return range;
         }
 
